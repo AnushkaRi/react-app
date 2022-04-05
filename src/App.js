@@ -6,17 +6,24 @@ import { RepositoryLink } from "./components/RepositoryLink";
 import { ABQuestion } from "./components/ABQuestions";
 
 function App() {
-  const handleButtonAClick = () => console.log("Clicked A");
-  const handleButtonBClick = () => console.log("Clicked B");
+  const handleOnChoice = (choiceValue) => console.log(choiceValue);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>React App</h1>
-        <p>You unique ID is: {idHelpers.generateId()}</p>
-        <RepositoryLink />
-        <RandomValue />
-        <ABQuestion onButtonAClick={handleButtonAClick} onButtonBClick={handleButtonBClick} />
+        <h1>algebra-example-react-app</h1>
+        <p>Your unique ID is: {idHelpers.generateId()}</p>
+        <RepositoryLink>View Repository</RepositoryLink>
+        <RandomValue values={[4, 5, 6]} />
+        <ABQuestion
+          question="Make the right choice"
+          buttonA="Blue pill"
+          buttonB="Red pill"
+          buttonAValue="Blue"
+          buttonBValue="Red"
+          onChoice={handleOnChoice}
+        />
       </header>
     </div>
   );
